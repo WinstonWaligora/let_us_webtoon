@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>994319988415-pakgj648kbn3fqkalnn81ingcpf439tq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.994319988415-pakgj648kbn3fqkalnn81ingcpf439tq</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>994319988415-q4ekuktgi6u08duou4bmo1t6ptf46g8f.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAIS_dp7n41drUNhMhFcn1gH7F6Qx4U4ho</string>
+	<key>GCM_SENDER_ID</key>
+	<string>994319988415</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.letUsWebtoon</string>
+	<key>PROJECT_ID</key>
+	<string>let-us-webtoon</string>
+	<key>STORAGE_BUCKET</key>
+	<string>let-us-webtoon.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:994319988415:ios:50ef05078e47ce4ba9f80a</string>
+</dict>
+</plist>

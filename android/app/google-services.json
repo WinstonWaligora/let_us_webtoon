@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "994319988415",
+    "project_id": "let-us-webtoon",
+    "storage_bucket": "let-us-webtoon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994319988415:android:dd537a3ef21bc39ba9f80a",
+        "android_client_info": {
+          "package_name": "com.example.let_us_webtoon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994319988415-q4ekuktgi6u08duou4bmo1t6ptf46g8f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.let_us_webtoon",
+            "certificate_hash": "0631cc2a2ebcc9fadd09ddb4c0cd1c2b978be4ac"
+          }
+        },
+        {
+          "client_id": "994319988415-0vfa9j5qca70ri3ccic8an6bn0pjd6n5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ13YrzcmTiTgJsJmb-VVMCrhIKz42OyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994319988415-0vfa9j5qca70ri3ccic8an6bn0pjd6n5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "994319988415-8osk31rs7p9gcjljfeb881f5iactbtd7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.letUsWebtoon.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

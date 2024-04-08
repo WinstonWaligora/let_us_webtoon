@@ -98,7 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Firebase Auth Demo'),
+        title: Text('Let Us Webtoon',
+            style: Theme.of(context).textTheme.headlineMedium),
       ),
       body: Center(
         child: Padding(
@@ -111,10 +112,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Email field
                 TextFormField(
                   controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
-                  ),
+                  decoration: InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: Theme.of(context)
+                          .textTheme
+                          .titleMedium, // Customize label text color
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color:
+                                Colors.tealAccent), // Customize border color),
+                      )),
                   validator: (value) {
                     // Validate the email input
                     if (value == null || value.isEmpty) {
@@ -130,9 +137,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 16.0),
                 TextFormField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Password',
-                    border: OutlineInputBorder(),
+                    labelStyle: Theme.of(context)
+                        .textTheme
+                        .titleMedium, // Customize label text color
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.tealAccent), // Customize border color),
+                    ),
                   ),
                   obscureText: true,
                   validator: (value) {

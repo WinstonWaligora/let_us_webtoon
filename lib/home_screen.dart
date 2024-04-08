@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:let_us_webtoon/generate_webtoon.dart';
 import 'package:let_us_webtoon/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
             onTap: () {
               // Navigate to GenerateWebtoonScreen
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                MaterialPageRoute(builder: (context) => const GenerateWebtoonScreen()),
               );
             },
             child: const Row(
@@ -77,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(
+                      side: const BorderSide(
                         color: Colors.amber, // Customize border color
                       ),
                       borderRadius:

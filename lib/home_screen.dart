@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     final List<String> webtoonNames = [
       'Fantasy Webtoon A',
       'Fantasy Webtoon B',
-      'Fantasy Webtoon C',
+      'Fantasy Webtoon C'
       // Add more webtoon names as needed
     ];
 

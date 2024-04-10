@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       labelStyle: Theme.of(context)
                           .textTheme
                           .titleMedium, // Customize label text color
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderSide: BorderSide(
                             color:
                                 Colors.tealAccent), // Customize border color),
@@ -142,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelStyle: Theme.of(context)
                         .textTheme
                         .titleMedium, // Customize label text color
-                    border: OutlineInputBorder(
+                    border: const OutlineInputBorder(
                       borderSide: BorderSide(
                           color: Colors.tealAccent), // Customize border color),
                     ),

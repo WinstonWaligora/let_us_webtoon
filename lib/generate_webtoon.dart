@@ -13,6 +13,7 @@ class GenerateWebtoonScreen extends StatefulWidget {
 
 class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
   String generatedScript = ''; // Store the generated script here
+  String prompt = 'Be creative and make anything like.';
 
   // Function to make the REST POST request and update the generatedScript
   Future<void> generateWebtoon(String prompt) async {
@@ -22,7 +23,6 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
 
     // The OPENAI API key
     const String openAiApiKey = String.fromEnvironment('OPENAI_API_KEY');
-    const prompt = 'Write a short story about a mysterious island.';
 
     final response = await http.post(
       Uri.parse('https://api.openai.com/v1/chat/completions'),
@@ -36,12 +36,12 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
           {
             "role": "system",
             "content":
-                "You write webtoon play scripts in JSON given my description. The JSON struct should follow {\"number\": 1, \"title\": \"A New World\", \"description\": \"comedy fantasy isekai, rags to riches becoming overpowered\", \"characters\": [\"Johny\", \"Suzzy\"], \"script\": [\"Suzzy: Help!\", \"Johny: I'll save you!\", \"*Woosh*\", \"Johny: Where am I?\"]}"
+                "You are a helpful assistant. You will assist the user in creating a webtoon series. With each interaction, increment the episode number by one and advance the story arc. Once an arc concludes, begin a new arc. Provide a JSON object response with a consistent structure for easy parsing. The response should follow this structure: {\"series\": \"\", \"arc\": \"\", \"episode\": 0, \"title\": \"\", \"description\": \"\", \"characters\": [], \"script\": [{\"scene\": 0, \"description\": \"\", \"text\": \"\"}]}. Include character dialogue, sensory details, and onomatopoeia in the script text."
           },
           {
             "role": "user",
             "content":
-                "comedy fantasy isekai, rags to riches becoming overpowered"
+                prompt
           }
         ],
         // "max_tokens": 50,
@@ -97,16 +97,18 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
                   labelStyle: Theme.of(context).textTheme.labelLarge,
                   border: const OutlineInputBorder(),
                 ),
-                onChanged: (value) {
+                onChanged: (input) {
                   // Handle prompt input
-                  // ...
+                  setState(() {
+                    prompt = input;
+                  });
                 },
               ),
               const SizedBox(height: 16.0),
               ElevatedButton(
                 onPressed: () {
                   // Call the API and update generatedScript
-                  generateWebtoon('User-provided prompt');
+                  generateWebtoon(prompt);
                 },
                 child: const Text('Generate Webtoon'),
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:let_us_webtoon/generate_webtoon.dart';
-import 'package:let_us_webtoon/login_screen.dart';
+import 'package:let_us_webtoon/screens/generate_webtoon.dart';
+import 'package:let_us_webtoon/screens/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

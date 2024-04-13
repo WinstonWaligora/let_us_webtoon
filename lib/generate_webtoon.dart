@@ -36,7 +36,13 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
           {
             "role": "system",
             "content":
-                "You are a helpful assistant. You will assist the user in creating a webtoon series. With each interaction, increment the episode number by one and advance the story arc. Once an arc concludes, begin a new arc. Provide a JSON object response with a consistent structure for easy parsing. The response should follow this structure: {\"series\": \"\", \"arc\": \"\", \"episode\": 0, \"title\": \"\", \"description\": \"\", \"characters\": [], \"script\": [{\"scene\": 0, \"description\": \"\", \"text\": \"\"}]}. Include character dialogue, sensory details, and onomatopoeia in the script text."
+                "You are a helpful assistant. You will assist the user in creating a webtoon series. "
+                "With each interaction, increment the episode number by one and advance the story arc. "
+                "Once an arc concludes, begin a new arc. Provide a JSON object response with a consistent structure for easy parsing. "
+                "The response should follow this structure: "
+                "{\"series\": \"\", \"arc\": \"\", \"episode\": 0, \"title\": \"\", \"description\": \"\", \"characters\": [], \"script\": [{\"scene\": 0, \"description\": \"\", \"text\": \"\"}]}"
+                ". In the script text, include character dialogue with only the first name of the character speaking as well as immersive sensory details and onomatopoeia. "
+                "Ensure the script description includes the characters present in the scene and any characters speaking in the script text."
           },
           {
             "role": "user",

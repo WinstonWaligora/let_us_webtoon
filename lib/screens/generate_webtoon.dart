@@ -59,6 +59,7 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
                 ". In the script text, label the character dialogue with only the first name of the character speaking. "
                 "The script text may also contain immersive sensory details and onomatopoeia for a better reading experience. "
                 "Ensure the script description includes the characters present in the scene and any characters speaking in the script text."
+                "The script description should end with ', webtoon style'."
           },
           {"role": "user", "content": prompt}
         ],
@@ -78,6 +79,9 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
           builder: (context) => ViewScreen(webtoon: newWebtoonEpisode),
         ),
       );
+      setState(() {
+        generatedScript = generatedText;
+      });
     } else {
       generatedScript = response.reasonPhrase!;
       print('Error: ${response.reasonPhrase}');

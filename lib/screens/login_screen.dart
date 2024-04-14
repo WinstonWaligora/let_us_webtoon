@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
         );
         // Navigate to the home screen
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen(webtoons: [])),
         );
       } on FirebaseAuthException catch (e) {
         // Handle the error and show a snackbar message
@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
         );
         // Navigate to the home screen
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const HomeScreen(webtoons: [],)),
         );
       } on FirebaseAuthException catch (e) {
         // Handle the error and show a snackbar message

@@ -2,22 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:let_us_webtoon/screens/generate_webtoon.dart';
 import 'package:let_us_webtoon/screens/login_screen.dart';
+import '../models/webtoon.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final List<Webtoon> webtoons; // Add this line
+  const HomeScreen({super.key, required this.webtoons}); // Modify this line
 
   @override
   Widget build(BuildContext context) {
     // Get the current user from Firebase Auth
     final User? user = FirebaseAuth.instance.currentUser;
-
-    // Sample list of webtoon names (replace with your actual data)
-    final List<String> webtoonNames = [
-      'Fantasy Webtoon A',
-      'Fantasy Webtoon B',
-      'Fantasy Webtoon C'
-      // Add more webtoon names as needed
-    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -51,29 +45,32 @@ class HomeScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
+          const SizedBox(height: 16.0), // Adds space between text elements
           // Plus sign for generating a new webtoon
           GestureDetector(
             onTap: () {
               // Navigate to GenerateWebtoonScreen
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const GenerateWebtoonScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const GenerateWebtoonScreen()),
               );
             },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.add_circle_outline),
-                SizedBox(width: 8.0),
+                SizedBox(width: 24.0),
                 Text('Generate New Webtoon'),
               ],
             ),
           ),
+          const SizedBox(height: 16.0), // Adds space between text elements
           // List of webtoon names
           Expanded(
             child: ListView.builder(
-              itemCount: webtoonNames.length,
+              itemCount: webtoons.length,
               itemBuilder: (context, index) {
-                final webtoonName = webtoonNames[index];
+                final webtoonName = webtoons[index].series;
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(

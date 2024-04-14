@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/webtoon.dart';
+import 'home_screen.dart';
 
 class ViewScreen extends StatelessWidget {
   final Webtoon webtoon;
@@ -54,8 +55,23 @@ class ViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(webtoon.series,
-            style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Text('Let Us Webtoon',
+            style: Theme.of(context).textTheme.headlineMedium),
+        automaticallyImplyLeading: true, // This will add the back button
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              // Navigate back to the HomeScreen with the Webtoon array
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(
+                      webtoons: [webtoon]), // Pass the Webtoon array here
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -63,9 +79,15 @@ class ViewScreen extends StatelessWidget {
           child: ListView(
             children: [
               Text(
-                'Arc: ${webtoon.arc}',
+                webtoon.series,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8.0), // Adds space between text elements
+              Text(
+                'Arc: ${webtoon.arc}',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 8.0), // Adds space between text elements
               Text(
@@ -77,7 +99,7 @@ class ViewScreen extends StatelessWidget {
               Text(
                 webtoon.title,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.labelMedium,
+                style: Theme.of(context).textTheme.labelLarge,
               ),
               const SizedBox(height: 16.0), // Adds space before the list starts
               ...webtoon.script.map((script) {

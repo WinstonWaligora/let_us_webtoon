@@ -58,7 +58,7 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
                 "The response should follow this structure: $sampleString. "
                 "Limit the episode description to a single short sentence. "
                 "The script array should have three scenes. "
-                "Each scene's description should be a descriptive phrase and containing the word anime. "
+                "Each scene's description should be a descriptive phrase containing the word anime. "
                 "In the script text, label the character speaking with their first name. "
                 "The script text may also contain immersive sensory details and onomatopoeia for a better reading experience. "
                 "Ensure the script description includes the characters speaking in the script text."

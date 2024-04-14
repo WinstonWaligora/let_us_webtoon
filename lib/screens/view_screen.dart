@@ -54,45 +54,73 @@ class ViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(webtoon.title),
+        title: Text(webtoon.series,
+            style: const TextStyle(fontWeight: FontWeight.bold)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            Text(
-              'Arc: ${webtoon.arc}',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            Text(
-              'Episode: ${webtoon.episode}',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            ...webtoon.script.map((script) {
-              return FutureBuilder(
-                future: fetchImage(script.description),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done &&
-                      snapshot.hasData) {
-                    // final imagePath = snapshot.data as String;
-                    // final imageBytes = File(imagePath).readAsBytesSync();
-                    final imageBytes = snapshot.data as Uint8List;
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.memory(imageBytes),
-                        Text(script.text),
-                      ],
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else {
-                    return CircularProgressIndicator();
-                  }
-                },
-              );
-            }).toList(),
-          ],
+        child: Center(
+          child: ListView(
+            children: [
+              Text(
+                'Arc: ${webtoon.arc}',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8.0), // Adds space between text elements
+              Text(
+                'Episode: ${webtoon.episode}',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              const SizedBox(height: 8.0), // Adds space between text elements
+              Text(
+                webtoon.title,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const SizedBox(height: 16.0), // Adds space before the list starts
+              ...webtoon.script.map((script) {
+                return FutureBuilder(
+                  future: fetchImage(script.description),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done &&
+                        snapshot.hasData) {
+                      // final imagePath = snapshot.data as String;
+                      // final imageBytes = File(imagePath).readAsBytesSync();
+                      final imageBytes = snapshot.data as Uint8List;
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0), // Adds space between cards
+                        child: Column(
+                          children: [
+                            Card(
+                              // Wraps image in a Card for a polished look
+                              elevation: 2.0,
+                              child: Image.memory(imageBytes),
+                            ),
+                            const SizedBox(
+                                height:
+                                    8.0), // Adds space between image and text
+                            Text(
+                              script.text,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  fontSize: 16.0), // Adjust font size as needed
+                            ),
+                          ],
+                        ),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                );
+              }).toList(),
+            ],
+          ),
         ),
       ),
     );

@@ -55,11 +55,13 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
             "content": "You are a helpful assistant. You will assist the user in creating a webtoon series. "
                 "With each interaction, increment the episode number by one and advance the story arc. "
                 "Once an arc concludes, begin a new arc. Provide a JSON object response with a consistent structure for easy parsing. "
-                "The response should follow this structure: $sampleString"
-                ". In the script text, label the character dialogue with only the first name of the character speaking. "
+                "The response should follow this structure: $sampleString. "
+                "Limit the episode description to a single short sentence. "
+                "The script array should have three scenes. "
+                "Each scene's description should be a descriptive phrase and containing the word anime. "
+                "In the script text, label the character speaking with their first name. "
                 "The script text may also contain immersive sensory details and onomatopoeia for a better reading experience. "
-                "Ensure the script description includes the characters present in the scene and any characters speaking in the script text."
-                "The script description should end with ', webtoon style'."
+                "Ensure the script description includes the characters speaking in the script text."
           },
           {"role": "user", "content": prompt}
         ],
@@ -69,19 +71,20 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
     );
 
     if (response.statusCode == 200) {
-      Map<String, dynamic> parsedJson = jsonDecode(jsonDecode(response.body)['choices'][0]['message']['content']);
+      Map<String, dynamic> parsedJson = jsonDecode(
+          jsonDecode(response.body)['choices'][0]['message']['content']);
       Webtoon newWebtoonEpisode = Webtoon.fromJson(parsedJson);
       final responseBody = jsonDecode(response.body);
       final generatedText = responseBody['choices'][0]['message']['content'];
+      setState(() {
+        generatedScript = generatedText;
+      });
       // Use Navigator to push to the ViewWebtoonScreen with the newWebtoonEpisode
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => ViewScreen(webtoon: newWebtoonEpisode),
         ),
       );
-      setState(() {
-        generatedScript = generatedText;
-      });
     } else {
       generatedScript = response.reasonPhrase!;
       print('Error: ${response.reasonPhrase}');

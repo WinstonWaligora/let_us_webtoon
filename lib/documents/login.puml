@@ -1,0 +1,17 @@
+@startuml
+!theme materia
+title Log into account
+skinparam defaultFontSize 24
+
+start
+:User enters email and password;
+:User clicks login button;
+:System validates user credentials;
+if (Credentials valid?) then (yes)
+  :System grants access to user account;
+  :System redirects user to webtoons page;
+else (no)
+  :System displays error message;
+endif
+stop
+@enduml

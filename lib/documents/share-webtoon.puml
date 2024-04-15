@@ -1,0 +1,18 @@
+@startuml
+!theme materia
+title Share a webtoon
+skinparam defaultFontSize 24
+
+start
+:User views webtoon;
+:User clicks share button;
+:System shows social media platforms;
+:User selects platform;
+:System redirects user to platform app or website;
+:System pre-populates message with webtoon link;
+:User edits message;
+:User clicks share button;
+:System posts message to user's social media account;
+:System notifies webtoon creator;
+stop
+@enduml

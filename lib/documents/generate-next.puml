@@ -1,0 +1,19 @@
+@startuml
+!theme materia
+title Generate the next episode
+skinparam defaultFontSize 24
+
+start
+:User selects webtoon from list;
+:User clicks next button;
+:System takes previous stories as additional input;
+:System sends text prompts to AI-generated text API;
+:System receives webtoon story, scenes, and script;
+:System sends story and scenes to AI image creation API;
+:System receives webtoon images;
+:System places speech bubbles over images with script;
+:System creates webtoon episode;
+:System adds episode to existing webtoon;
+:System updates episodes list;
+stop
+@enduml

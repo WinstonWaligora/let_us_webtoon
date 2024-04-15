@@ -1,0 +1,13 @@
+@startuml
+!theme materia
+title Resolve user reports
+skinparam defaultFontSize 24
+
+start
+:Administrator accesses report list;
+:Administrator selects report;
+:Administrator checks report details;
+:Administrator takes actions;
+:Administrator resolves report;
+stop
+@enduml

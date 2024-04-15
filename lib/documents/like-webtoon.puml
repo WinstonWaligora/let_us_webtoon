@@ -1,0 +1,12 @@
+@startuml
+!theme materia
+title Like a webtoon
+skinparam defaultFontSize 24
+
+start
+:User views webtoon;
+:User clicks like button;
+:System increases likes on webtoon;
+:System adds webtoon to user's liked webtoon list;
+stop
+@enduml

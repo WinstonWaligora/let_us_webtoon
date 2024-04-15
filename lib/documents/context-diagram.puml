@@ -1,0 +1,14 @@
+@startuml 
+!theme materia
+'Define the skinparam for the font size
+skinparam defaultFontSize 24
+
+'Define the components
+[Let Us Webtoon] as webtoon
+[Squiblr.io] as story
+[Stable Diffusion] as image
+
+'Define the relationships
+story --> webtoon : story
+image --> webtoon : images
+@enduml

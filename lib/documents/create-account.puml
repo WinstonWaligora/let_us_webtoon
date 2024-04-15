@@ -1,0 +1,14 @@
+@startuml
+!theme materia
+title Create an account
+skinparam defaultFontSize 24
+
+start
+:User enters email and password;
+:User clicks signup button;
+:System sends confirmation email;
+:User clicks verification link;
+:System activates user account;
+:System redirects user to webtoons page;
+stop
+@enduml

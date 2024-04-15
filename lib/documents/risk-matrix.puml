@@ -1,0 +1,36 @@
+@startuml
+digraph Risk {
+    label=<
+        <TABLE>
+            <TR>
+                <TD ROWSPAN="2" COLSPAN="2">Risk Matrix</TD>
+                <TD COLSPAN="3">Impact</TD> 
+            </TR>
+            <TR>
+                <TD BGColor="LightGreen">Low</TD>
+                <TD BGColor="PaleGoldenRod">Medium</TD>
+                <TD BGColor="LightCoral">High</TD>
+            </TR> 
+            <TR>
+                <TD ROWSPAN="3">Probability</TD>
+                <TD BGColor="LightGreen">Low</TD>
+                <TD BGColor="LightGreen">Low</TD>
+                <TD BGColor="LightGreen">Low</TD>
+                <TD BGColor="PaleGoldenRod">Medium</TD>
+            </TR> 
+            <TR>
+                <TD BGColor="PaleGoldenRod">Medium</TD>
+                <TD BGColor="LightGreen">Low</TD>
+                <TD BGColor="PaleGoldenRod">Medium</TD>
+                <TD BGColor="LightCoral">High</TD>
+            </TR>
+            <TR>
+                <TD BGColor="LightCoral">High</TD>
+                <TD BGColor="PaleGoldenRod">Medium</TD>
+                <TD BGColor="LightCoral">High</TD>
+                <TD BGColor="LightCoral">High</TD>
+            </TR>
+        </TABLE>
+    >
+}
+@enduml

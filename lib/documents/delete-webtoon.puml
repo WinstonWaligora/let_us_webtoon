@@ -1,0 +1,16 @@
+@startuml
+!theme materia
+title Delete a webtoon
+skinparam defaultFontSize 24
+
+start
+:User selects webtoon from list;
+:User clicks delete button;
+:System prompts user to confirm deletion;
+if (User confirms?) then (yes)
+  :System removes webtoon from user list;
+else (no)
+  :System cancels deletion;
+endif
+stop
+@enduml

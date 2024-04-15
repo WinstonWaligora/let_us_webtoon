@@ -1,0 +1,13 @@
+@startuml
+!theme materia
+title Search public webtoon
+skinparam defaultFontSize 24
+
+start
+:User selects text search option;
+:User enters webtoon or user name;
+:System displays matching webtoons;
+:User selects webtoon from list;
+:System displays webtoon;
+stop
+@enduml

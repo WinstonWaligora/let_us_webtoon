@@ -1,0 +1,39 @@
+@startuml 
+!theme materia
+skinparam actorStyle awesome
+skinparam defaultFontSize 48
+
+' Define the actors
+:User: as user
+:Admin: as admin
+
+' Define the use cases
+rectangle {
+    (Create account) as create
+    (Log into account) as login
+    (Generate a new webtoon) as generate
+    (Views a webtoon) as view
+    (Delete a webtoon) as delete
+    (Generates the next episode) as next
+}
+
+' Define the extends and includes arrows
+next ..> generate : includes
+generate ..> login : includes
+view ..> login : includes
+delete ..> login : includes
+login ..> create : includes
+
+' Define the relationships
+admin --> create
+admin --> login
+user --> create
+user --> login
+user --> generate
+user --> view
+user --> delete
+user --> next
+
+' Define the layout
+' left to right direction
+@enduml

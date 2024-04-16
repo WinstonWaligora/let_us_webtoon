@@ -4,15 +4,13 @@ title Create a new webtoon
 skinparam defaultFontSize 24
 
 start
-:User enters text prompt;
-:User clicks create button;
-:System sends text prompt to AI-generated text API;
-:System receives webtoon story, scenes, and script;
-:System sends story and scenes to AI image creation API;
-:System receives webtoon images;
-:System places speech bubbles over images with script;
-:System creates webtoon;
-:System assigns unique ID to webtoon;
-:System stores webtoon in user's webtoon list;
+:User provides creative input;
+:User requests content generation;
+:System processes creative input through AI;
+:System compiles narrative and visual elements;
+:System integrates narrative with visuals;
+:System finalizes webtoon creation;
+:System catalogues webtoon with an identifier;
+:System archives webtoon in user's collection;
 stop
 @enduml

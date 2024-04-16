@@ -4,13 +4,13 @@ title Delete a webtoon
 skinparam defaultFontSize 24
 
 start
-:User selects webtoon from list;
-:User clicks delete button;
-:System prompts user to confirm deletion;
-if (User confirms?) then (yes)
-  :System removes webtoon from user list;
+:User chooses webtoon for removal;
+:User initiates removal process;
+:System requests removal confirmation;
+if (User agrees to proceed?) then (yes)
+  :System completes removal of webtoon;
 else (no)
-  :System cancels deletion;
+  :System discontinues removal process;
 endif
 stop
 @enduml

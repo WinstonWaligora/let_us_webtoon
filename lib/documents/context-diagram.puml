@@ -1,14 +1,24 @@
-@startuml 
+@startuml
 !theme materia
 'Define the skinparam for the font size
 skinparam defaultFontSize 24
 
 'Define the components
-[Let Us Webtoon] as webtoon
-[Squiblr.io] as story
-[Stable Diffusion] as image
+cloud {
+    [OpenAI] as openai
+}
+node {
+    [Let Us Webtoon] as webtoon
+}
+database {
+    [Firebase] as firebase
+}
 
 'Define the relationships
-story --> webtoon : story
-image --> webtoon : images
+openai <-- webtoon : prompt
+openai --> webtoon : story
+openai --> webtoon : image
+firebase <-- webtoon : credentials
+firebase --> webtoon : verification
+firebase <--> webtoon : webtoon
 @enduml

@@ -4,14 +4,14 @@ title Log into account
 skinparam defaultFontSize 24
 
 start
-:User enters email and password;
-:User clicks login button;
-:System validates user credentials;
-if (Credentials valid?) then (yes)
-  :System grants access to user account;
-  :System redirects user to webtoons page;
+:User provides login information;
+:User requests access;
+:System checks login information;
+if (Is the information correct?) then (yes)
+  :System allows entry to user profile;
+  :System navigates user to content library;
 else (no)
-  :System displays error message;
+  :System informs of unsuccessful attempt;
 endif
 stop
 @enduml

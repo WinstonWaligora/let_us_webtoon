@@ -4,8 +4,8 @@ title View a webtoon
 skinparam defaultFontSize 24
 
 start
-:User selects webtoon from list;
-:System displays webtoon;
-:User scrolls page up and down;
+:User chooses webtoon to view;
+:System presents selected webtoon;
+:User navigates through webtoon content;
 stop
 @enduml

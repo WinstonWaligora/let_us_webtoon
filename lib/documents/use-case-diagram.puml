@@ -5,7 +5,7 @@ skinparam defaultFontSize 48
 
 ' Define the actors
 :User: as user
-:Admin: as admin
+' :Admin: as admin
 
 ' Define the use cases
 rectangle {
@@ -25,14 +25,20 @@ delete ..> login : includes
 login ..> create : includes
 
 ' Define the relationships
-admin --> create
-admin --> login
-user --> create
-user --> login
-user --> generate
-user --> view
-user --> delete
-user --> next
+' admin --> create
+' admin --> login
+user --> create : Registration
+user <-- create : Confirmation
+user --> login : Credentials
+user <-- login : Access
+user --> generate : Prompt
+user <-- generate : Content
+user --> view : Selection
+user <-- view : Display
+user --> delete : Choice
+user <-- delete : Removal
+user --> next : Continuation
+user <-- next : Episode
 
 ' Define the layout
 ' left to right direction

@@ -57,7 +57,7 @@ class _GenerateWebtoonScreenState extends State<GenerateWebtoonScreen> {
                 "Once an arc concludes, begin a new arc. Provide a JSON object response with a consistent structure for easy parsing. "
                 "The response should follow this structure: $sampleString. "
                 "Limit the episode description to a single short sentence. "
-                "The script array should have three scenes. "
+                "The script array should have five scenes. "
                 "Each scene's description should be a descriptive phrase containing the word anime. "
                 "In the script text, label the character speaking with their first name. "
                 "The script text may also contain immersive sensory details and onomatopoeia for a better reading experience. "

@@ -1,0 +1,25 @@
+@startuml
+!theme materia
+skinparam defaultFontSize 24
+
+[*] --> Unregistered
+Unregistered : User has not created an account
+Unregistered --> Registered : create(Registration)
+Registered : User has created an account
+Registered --> LoggedIn : login(Credentials)
+LoggedIn : User is logged in
+LoggedIn --> GeneratingWebtoon : User chooses to generate webtoon
+GeneratingWebtoon : Prompt sent to OpenAI API
+GeneratingWebtoon --> ViewingWebtoon : Story and images generated
+ViewingWebtoon : User is viewing the webtoon
+ViewingWebtoon --> GeneratingNextEpisode : User chooses to generate next episode
+GeneratingNextEpisode : Continuation prompt sent to OpenAI API
+GeneratingNextEpisode --> ViewingWebtoon : Next episode generated
+ViewingWebtoon --> DeletingWebtoon : User chooses to delete webtoon
+DeletingWebtoon : Webtoon selected for deletion
+DeletingWebtoon --> LoggedIn : Webtoon deleted
+LoggedIn --> LoggedOut : User logs out
+LoggedOut : User is logged out
+LoggedOut --> [*]
+
+@enduml

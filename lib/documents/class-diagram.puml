@@ -1,0 +1,45 @@
+@startuml
+!theme materia
+'Define the skinparam for the font size
+skinparam defaultFontSize 24
+
+class User {
+  - email: String
+  - webtoons: Webtoon[]
+  + createAccount()
+  + login()
+  + generateWebtoon()
+  + viewWebtoon()
+  + deleteWebtoon()
+  + generateNextEpisode()
+}
+
+class Webtoon {
+  - series: String
+  - arc: String
+  - episode: int
+  - title: String
+  - description: String
+  - characters: String[]
+  - script: Script[]
+  + toJson()
+  + fromJson()
+}
+
+class Script {
+  - scene: int
+  - description: String
+  - text: String
+  + toJson()
+  + fromJson()
+}
+
+class OpenAI_API {
+  + chat()
+  + createImage()
+}
+
+User --> Webtoon : "has >"
+Webtoon --> Script : "contains >"
+User ..> OpenAI_API : "interacts with >"
+@enduml

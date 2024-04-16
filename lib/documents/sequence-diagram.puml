@@ -1,0 +1,56 @@
+@startuml
+!theme materia
+'Define the skinparam for the font size
+skinparam defaultFontSize 24
+
+actor User
+participant "Webtoon App" as App
+participant "OpenAI API" as OpenAI
+
+User -> App: create(Registration)
+activate App
+App -> User: Confirmation
+deactivate App
+
+User -> App: login(Credentials)
+activate App
+App -> User: Access
+deactivate App
+
+
+loop for each Episode
+
+User -> App: generate(Prompt)
+activate App
+App -> OpenAI: chat(Prompt)
+activate OpenAI
+OpenAI -> App: Story
+deactivate OpenAI
+App -> App: split(Story)
+activate App
+loop for each Scene
+    App -> OpenAI: createImage(Description)
+    activate OpenAI
+    OpenAI -> App: Image
+    deactivate OpenAI
+end
+App -> User: Content with Images
+deactivate App
+
+User -> App: view(Selection)
+activate App
+App -> User: Display
+deactivate App
+
+User -> App: next(Continuation)
+activate App
+App -> User: Episode
+deactivate App
+
+end
+
+User -> App: delete(Choice)
+activate App
+App -> User: Removal
+deactivate App
+@enduml

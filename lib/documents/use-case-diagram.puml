@@ -14,7 +14,7 @@ rectangle {
     (Generate a new webtoon) as generate
     (Views a webtoon) as view
     (Delete a webtoon) as delete
-    (Generates the next episode) as next
+    (Generate the next episode) as next
 }
 
 ' Define the extends and includes arrows

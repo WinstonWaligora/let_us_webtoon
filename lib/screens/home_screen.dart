@@ -120,7 +120,6 @@ class HomeScreen extends StatelessWidget {
                         IconButton(
                           onPressed: () {
                             // Show confirmation popup for deletion
-                            // Implement your confirmation logic here
                           },
                           icon: const Icon(Icons.delete),
                           color: Theme.of(context)

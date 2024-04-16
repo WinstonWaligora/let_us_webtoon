@@ -1,0 +1,62 @@
+@startuml
+!theme materia
+'Define the skinparam for the font size
+skinparam defaultFontSize 24
+
+rectangle "AI Generated Webtoon App" {
+    rectangle "Login Screen" {
+        rectangle {
+            [Username]
+            [Password]
+        }
+        rectangle {
+            [Login Button]
+            [Create Account Button]
+        }
+    }
+
+    rectangle "Home Screen" {
+        [Create New Webtoon Button]
+        rectangle "Webtoon" {
+            [View Webtoon Button]
+            [Create Next Episode Button]
+            [Delete Webtoon Button]
+        }
+        rectangle "Webtoon2" {
+            [View Webtoon Button2]
+            [Create Next Episode Button2]
+            [Delete Webtoon Button2]
+        }
+    }
+
+    rectangle "View Webtoon" {
+        [Webtoon Title]
+        rectangle {
+            [Webtoon Image]
+            [Webtoon Story]
+        }
+        rectangle {
+            [Webtoon Image2]
+            [Webtoon Story2]
+        }
+        rectangle {
+            [Webtoon Image3]
+            [Webtoon Story3]
+        }
+    }
+
+    rectangle "Content Creation" {
+        [Prompt Input]
+        [Generate Webtoon Button]
+    }
+}
+
+[Login Button] -right-> [Home Screen] : Displays Home Screen
+[View Webtoon Button] -> [View Webtoon] : Displays selected webtoon
+[Create New Webtoon Button] -> [Content Creation] : Starts content generation
+[Content Creation] --> [View Webtoon] : Displays generated webtoon
+
+' Define the layout
+left to right direction
+
+@enduml
